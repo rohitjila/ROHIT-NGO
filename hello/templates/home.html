@@ -1,0 +1,261 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{% load staticfiles %} 
+
+<h2>HERE ARE THE GUIDELINES HOW TO USE WEBSITE :</h2>
+<br>
+    <h5>1.First you help the poor/needy people and click photo with him/her.</h5>
+    
+    <h5>2.Sign In.</h5>
+    
+    <h5>3.Log In.</h5>
+
+    <h5>4.When you logged in click on create details. </h5>
+
+    <h5>5.Give your NAME,FULL_ADDRESS.In IMAGE field add the photo of needy people with you whom you help and in SELF_IMAGE add your own image.</h5>
+    
+    <h5>6.  Click on Add details button.</h5>
+
+    <h5>7.Then click on Rohit-NGO or ICON of ROHIT-NGO, given on the top
+        of website .It will redirect you to homepage where you see all the photos given by the people. </h5>
+
+    <h5>8.Upvote the photo which you like most.</h5>
+    
+    <h5>9.If you want to become volunteer of my NGO and for more updates of website, 
+        then  join the group via given whatsapp icon.</h5>
+    <br>
+    
+
+    <a href="https://chat.whatsapp.com/K73dnEx1Bhv6hk6Mj0GnNd"><h5>CLICK ON WHATSAPP ICON AND BECOME VOLUNTEER AND BE READY TO HELP THE NEEDY PEOPLE. </h5><img src="{% static 'w1.png' %}" height="50"></a>
+    <h3>GO ON! CLICK THE WHATSAPP ICON.</h3>
+    <br>
+    <h4>IF YOU WANT TO DONATE MONEY FOR THE HELP OF NEEDY PEOPLE SCAN THE IMAGE/QR-CODE GIVEN BELOW :CONTRIBUTE IN ROHIT-NGO
+        AS MUCH AS YOU CAN FOR THE HELP OF NEEDY/POOR PEOPLE.OUR NGO WILL HELP ALL THE PEOPLE WHO ARE SUFFER FRO SUCH
+        EPIDEMIC.WE TRY OUR BEST.SO PLEASE GO AHEAD AND TELL PEOLE TO CONTRIBUTE IN ROHIT-NGO.
+    </h4>
+    <img src="{% static 'v1.jpeg' %}" height="500">
+    <h4>HERE IS MY G-PAY,PHONE-PE NUMBER.(+916204488083).YOU CAN ALSO DONATE MONEY FOR THE HELP OF NEEDY PEOPLE ON GIVEN NUMBER.</h4>
+    <br>
+    
+    <h2>ROLE OF VOLUNTEER:</h2>
+    <h4>The role of the volunteer is to help the needy/poor people of their respective city/
+    town/village and upload the photo on my website.You can also raise fund through public 
+    and
+    you can use your own fund to help the people.Upload the photo of your own with the person whom you help.
+    It is mandatory.
+
+    
+</h4>
+<br>
+<br>
+
+
+
+
+
+{% for product in hello.all %}
+
+
+
+<div class="row pt-3">
+    <div class="col-2" onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;">
+        <img src="{{ product.image.url }}" class="img-fluid"/>
+    </div>
+    <div class="col-6 onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;"">
+        <h4>{{product.Name}}</h6>
+        <h6>{{product.Full_Address}}</h6>
+    </div>
+    <div class="col-4  onclick="window.location='{% url 'detail' product.id %}';" style="cursor: pointer;"">
+        <a href="javascript:{document.getElementById('upvote{{product.id}}').submit()}"><button class="btn btn-primary btn-lg btn-block "><span class="oi oi-caret-top"></span>Upvote {{product.votes_total}}</button></a>   
+    </div>
+</div>
+
+
+<form id="upvote{{product.id}}" method="POST"  action="{% url 'upvote' product.id %}" >
+    {% csrf_token %}
+    <input type="hidden">
+</form> 
+
+{% endfor %}
+<br>
+<br>
+
+
+
+<h5>
+    AS WE KNOW THAT THERE ARE MANY POOR PEOPLE IN INDIA AND ALL OVER THE WORLD
+    DUE TO THIS EPIDEMIC .ALL COUNTRY SUFFERED FROM ECONOMIC 
+    CRISIS.SO IT'S OUR RESPONSIBILITY TO MAKE OUR COUNTRY GOOD IN ECONOMIC CONDITION.
+    IT'S LIKE A CHALLANGE FOR ALL OF US.WE SHOULD HELP AT LEAST 10 POOR PEOPLE BY GIVING 
+    THEM ANYTHING ONLY HELP IN ANYWAY.HERE IS GOOD PLATFORM I PROVIDE TO YOU.WHEN YOU HELP 
+    THE PERSON ,YOU CLICK PHOTO WITH HIM/HER AND UPLOAD ON THIS WEBSITE.IN THIS WAY YOU BECOME PART OF MY TEAM.
+    AND HERE IN THE WEBSITE  WHERE YOU SEE YOUR ALL THE PHOTOS OF PERSON WHOM YOU HELP, TAKE PART IN THIS GREAT WORK.
+    GO AHEAD! AND ALSO AWARE PEOPLE TO HELP THE NEEDY/POOR PEOPLE.
+</h5>
+<br>
+<br>
+
+
+<h2>ABOUT CORONAVIRUS </h2>
+<img src="{% static 'x1.jpg' %}" height="225"/> &emsp;&emsp;
+<img src="{% static 'x2.jpg' %}" height="225"/> &emsp;&emsp;
+<img src="{% static 'x3.jpg' %}" height="225"/>&emsp;&emsp;
+
+
+<h6>Coronaviruses typically affect the respiratory tracts of birds and mammals, 
+    including humans. Doctors associate them with the common cold, bronchitis, pneumonia, 
+    severe acute respiratory syndrome (SARS), and coronavirus disease 2019 (COVID-19).
+     These viruses can also affect the gut.
+
+Coronaviruses usually cause the common cold, though they can be responsible for more severe illnesses.
+
+Over the past 80 years, scientists have found that these viruses can infect mice, 
+rats, dogs, cats, turkeys, horses, pigs,
+ and cattle. Sometimes, these animals transmit the viruses to humans.
+
+Most recently, authorities identified a new coronavirus outbreak in China
+that has now reached other countries.
+ The virus is called severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) and it can cause COVID-19.
+
+In this article, we explain the different types of human coronavirus, their symptoms,
+ and how people transmit them. We also focus on three particularly dangerous diseases caused by coronaviruses: 
+ COVID-19, SARS, and Middle East respiratory syndrome (MERS).
+
+Stay informed with live updates on the current COVID-19 outbreak and visit our coronavirus hub for more advice on prevention and treatment.
+
+<h2>What is a coronavirus?</h2>
+Covering the mouth when sneezing can help stop the spread of coronaviruses.
+Researchers first identified a coronavirus in 1937, isolating one that was responsible for a type of bronchitis in birds that had the potential to devastate poultry stocks.
+
+Scientists found evidence of human coronaviruses in the 1960s, in the noses of people with the common cold.
+
+Human coronaviruses that are particularly prevalent include 229E, NL63, OC43, and HKU1.
+
+The name “coronavirus” comes from the crown-like projections on their surfaces. “Corona” in Latin means “halo” or “crown.”
+
+Among humans, coronavirus infections most often occur during the winter months and early spring.
+
+<h2>COVID-19</h2>
+In 2019, the Centers for Disease Control and Prevention (CDC) started monitoring the outbreak of a new coronavirus, SARS-CoV-2, which causes COVID-19. Authorities first identified the virus in Wuhan, China.
+
+Since then, the virus has spread to nearly every country, leading the World Health Organization (WHO) to declare a pandemic.
+
+The new coronavirus has been responsible for millions of infections globally, causing hundreds of thousands of deaths. The United States has seen the highest number of these deaths.
+
+The first people with COVID-19 had links to an animal and seafood market. This suggests that animals initially transmitted the virus to humans. Then, people with no connections to the market developed the disease, confirming that humans can pass the virus to each other.
+
+Most people who get COVID-19 will have a mild form of the disease. According to the WHO, around 80% of people who get COVID-19 will recover without needing hospitalization.
+
+The remaining 20% become seriously ill and develop difficulty breathing.
+
+Some groups are more at risk of severe disease, including older adults and people with underlying medical concerns, including high blood pressure, heart and lung problems, diabetes, and cancer.
+
+The mortality rate varies between countries. In the U.S., the death rate is around 6%.
+
+According to the CDC, children are not at higher risk of COVID-19 than adults.
+
+Pregnant women appear to have the same risk of COVID-19 as other adults. However, during pregnancy, women have a higher risk of severe illness from viruses that are similar to SARS-CoV-2 and influenza.
+
+The CDC also recommend that infants born to women with suspected or confirmed COVID-19 are put into isolation.
+<br>
+<br>
+
+<h2>Symptoms of COVID-19</h2>
+<img src="{% static 'k1.jpg' %}" height="225"/> &emsp;&emsp;
+<img src="{% static 'k2.jpg' %}" height="225"/> &emsp;&emsp;
+<img src="{% static 'k3.jpg' %}" height="225"/>
+
+<h5>People may start to experience symptoms 2–14 days after exposure to the virus. Symptoms may include:</h5>
+a fever
+chills
+a cough
+shortness of breath or difficulty breathing
+sore throat
+congestion or a runny nose
+fatigue
+headache
+muscle pain
+new loss of taste or smell
+nausea or vomiting
+diarrhea
+No vaccine is currently available for COVID-19. However, scientists have now replicated the virus. This could allow for early detection and treatment in people who have the virus but are not experiencing symptoms.
+
+According to the CDC, the following groups have a higher risk of developing serious illness from COVID-19:
+
+people aged 65 years or older
+people living in nursing homes or care facilities
+people of any age who have serious underlying medical conditions, including chronic lung disease, serious heart conditions, severe obesity, a compromised immune system, or diabetes
+The CDC note that although there have been reports of complications in young children, these are rare. COVID-19 most commonly produces mild symptoms in children.
+
+
+
+
+<h2>General symptoms of coronavirus infections</h2>
+Cold- or flu-like symptoms usually set in around 2–4 days after the infection develops. Typically, the symptoms are mild, though they vary from person to person. In some people, coronavirus infections are fatal.
+
+Symptoms may include:
+
+a runny nose
+a headache
+a cough
+a fever
+a sore throat
+generally feeling unwell
+While scientists can easily cultivate rhinoviruses — which also cause the common cold — in the laboratory, this is not the case with coronaviruses. This makes it difficult to gauge the impact of these pathogens.
+
+There is currently no cure for the cold-like illnesses caused by coronaviruses. Treatments include self-care and over-the-counter medications.
+
+Taking the following steps may help:
+
+resting and avoiding overexertion
+drinking plenty of water
+avoiding smoking and smoky areas
+taking acetaminophen (Tylenol) to reduce pain and a fever
+using a clean humidifier or cool mist vaporizer
+A doctor can identify the virus responsible in a sample of fluid from a person’s body, such as a sample of blood or mucus from the nose.
+
+<h2>Types</h2>
+Coronaviruses belong to the subfamily Coronavirinae in the family Coronaviridae.
+
+Different types of coronavirus vary, in terms of the severity of disease that they cause and how far they spread.
+
+Doctors currently recognize seven types of coronavirus that can infect humans.
+
+Common types include:
+
+229E (alpha coronavirus)
+NL63 (alpha coronavirus)
+OC43 (beta coronavirus)
+HKU1 (beta coronavirus)
+Rarer strains that cause more severe illnesses include MERS-CoV, which causes the disease MERS, and SARS-CoV, the virus responsible for SARS.
+
+In 2019, a new strain, called SARS-CoV-2, started circulating, causing the disease COVID-19.
+
+<h2>Transmission</h2>
+The CDC recommend that all people wear cloth face masks in public places where it is difficult to maintain a 6-foot (2-meter) distance from others. This will help slow the spread of the virus from asymptomatic people and people who do not know that they have contracted it. People should wear cloth face masks while continuing to practice physical distancing. Instructions for making masks at home are available here. Note: It is critical that surgical masks and N95 respirators are reserved for healthcare workers.
+
+Researchers believe that the viruses transmit via fluids in the respiratory system, such as mucus.
+
+For example, a coronavirus can spread when a person:
+
+coughs or sneezes without covering their mouth, dispersing droplets into the air
+touches someone who has the infection
+touches a surface that has the virus, then touches their own nose, eyes, or mouth
+Some animal coronaviruses may spread to humans through contact with feces, though it is unclear whether human coronaviruses can spread in the same way.
+
+Coronaviruses will infect most people at some point.
+
+To prevent transmission, people with symptoms should stay at home, rest, and avoid coming into close contact with other people.
+
+Covering the mouth and nose with a tissue or handkerchief while coughing or sneezing can also help prevent transmission. It is important to dispose of used tissues right away and maintain proper hygiene around the home.
+<br>
+<br>
+<h4>GO! Follow me for more updates.Click on the facbook and instagram icon.</h4>
+<br>
+<a href="https://www.facebook.com/OYE-ITS-MUSIC-110339910646796/"><img src="{% static 'fb2.jpg' %}" height="50">Facebook</a> 
+    &emsp;&emsp;&emsp;<a href="https://www.instagram.com/rv720468/"><img src="{% static 'insta.jpg' %}" height="50">Instagram</h6></a>
+
+
+
+{% endblock %}
